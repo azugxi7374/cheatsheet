@@ -1,8 +1,14 @@
 
+####################################
 # binディレクトリ
 ls /usr/bin
 ls /usr/sbin
 
+# コマンド場所
+which -a ls
+whereis ls
+
+#################################################
 # システム設定ディレクトリ(CentOS)
 ls /usr/lib/systemd/system # CentOS
 ls /lib/systemd/system # Ubuntu
@@ -26,6 +32,9 @@ cat /proc/version
 uname -a
 
 
+#######################################
+# ユーザ
+cat /etc/sudoers
 
-
+whoami
 
