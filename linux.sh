@@ -37,4 +37,10 @@ uname -a
 cat /etc/sudoers
 
 whoami
+echo ${USER}
+
+sudo usermod -aG docker ${USER}
+su - ${USER}
+id -nG
+
 
