@@ -18,4 +18,6 @@ const [onload, loaded] = onloadWrapper
 // <... onload="onload()" ... />
 // loaded.then(()=>...)
 
-
+const uri=""
+const encoded = encodeURI(uri)
+decodeURI(encoded)
