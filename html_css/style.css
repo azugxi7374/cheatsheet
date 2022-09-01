@@ -1,0 +1,17 @@
+/* selectors */
+/* https://developer.mozilla.org/ja/docs/Learn/CSS/Building_blocks/Selectors#type_class_and_id_selectors */
+h1 { }
+* { }
+.box { }
+#unique { }
+a[title] { }
+a[href="https://example.com"] { }
+a:hover { }
+p:first-child { }
+
+p::first-line { }
+
+article p { }
+article > p { }
+h1 + p { }
+h1 ~ p { }
