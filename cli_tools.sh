@@ -1,7 +1,9 @@
 # git
 git config --global user.name <name>
 git config --global user.email <email>
-
+git checkout
+git stash
+git add -i
 
 
 # vagrant
