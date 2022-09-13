@@ -30,8 +30,11 @@ atob(btoa("hogepiyo")) // 'hogepiyo'
 
 /////////////////////
 // HTMLのサイズ関連
-// スマホで画面サイズ取得に使う
+// ↓スマホで画面サイズ取得に使う
 [window.parent.screen.height, window.parent.screen.width] // window.topでいいのでは？
+
+[window.innerHeight, window.innerWidth] // ビューポートのサイズ
+
 const elem1 = document.body;
 [elem1.clientHeight, elem1.clientWidth] // padding含む内側サイズ
 const elem2 = document.querySelector('a')
