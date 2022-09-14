@@ -19,3 +19,7 @@ vagrant reload
 
 vagrant global-status
 
+
+docker run --rm -it ubuntu
+docker ps
+docker images

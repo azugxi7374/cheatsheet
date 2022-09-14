@@ -8,6 +8,9 @@ for f in $(find . -type f -name '*.sh'); do echo "$f"; done
 # ↓空白がある場合はreadで読む
 find . -type f -name '*.sh' | while read arr; do echo "${arr[*]}"; done
 
+# 
+tree
+tree -N . # 文字化け回避
 
 diff <(command1) <(command2)
 
@@ -33,14 +36,14 @@ Hoge() {
     for s in "$*"; do echo $s; done
 }
 Hoge aaa bbb ccc
-<<HEREDOC
-$*
-aaa
-bbb
-ccc
-"$*"
-aaa bbb ccc
-HEREDOC
+# $*
+# aaa
+# bbb
+# ccc
+# "$*"
+# aaa bbb ccc
 
+
+env
 
 exit 0
