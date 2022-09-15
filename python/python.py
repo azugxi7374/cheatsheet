@@ -35,6 +35,7 @@ len("hoge")
 x,y,z = 5,'hoge',[1,2,3]
 '{} {} {}'.format(x,y,z) # => '5 hoge [1, 2, 3]'
 '{1} {0} {2}'.format(x,y,z) # => 'hoge 5 [1, 2, 3]'
+f'x:{x}, y:{y}, z:{z}' # => 'x:5, y:hoge, z:[1, 2, 3]'
 
 #lists
 [1,2,3]+[4,5,6] #=> [1, 2, 3, 4, 5, 6]
@@ -65,4 +66,5 @@ with open('./python/python.py', 'r') as f:
     for line in f:
         print(line, end='')
 
-
+import subprocess
+subprocess.run(["open", "example.com"])
