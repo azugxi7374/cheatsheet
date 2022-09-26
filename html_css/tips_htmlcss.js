@@ -39,3 +39,22 @@ const elem1 = document.body;
 [elem1.clientHeight, elem1.clientWidth] // padding含む内側サイズ
 const elem2 = document.querySelector('a')
 [elem2.clientHeight, elem2.clientWidth] // inlineでは0
+
+
+
+// events
+document.addEventListener('DOMContentLoaded', () => { });
+{
+    const element = document.querySelector('input');
+    element.addEventListener('change', (e) => {
+        e.target.value
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    element.addEventListener('click', (e) => {
+        const mx = e.offsetX, my = e.offsetY;
+    });
+    'mousemove'
+    'input'
+
+}
