@@ -12,7 +12,7 @@ Array(3) // (3) [empty × 3]
 Array.of(1) // [1]
 Array.of(1, 2, 3) // (3) [1, 2, 3]
 Object.fromEntries([["hoge", 1], ["piyo", 2]]) // {hoge: 1, piyo: 2}
-
+Object.keys(obj)
 
 const uri = ""
 const encoded = encodeURI(uri)
