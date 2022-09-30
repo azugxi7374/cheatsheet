@@ -30,3 +30,11 @@ atob(btoa("hogepiyo")) // 'hogepiyo'
 // Unicode
 "😄".codePointAt(0) // 128516
 "\u{1f604}" // '😄'
+
+{
+    const res = await fetch('http://example.com')
+    res.status // 200
+    const t = await res.text()
+    console.log(t)
+    const js = await res.json() // read後なのでerror
+}
