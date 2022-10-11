@@ -47,3 +47,6 @@ Hoge aaa bbb ccc
 env
 
 exit 0
+
+basename /etc/passwd
+basename script.sh .sh
