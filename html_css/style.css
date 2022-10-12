@@ -31,3 +31,15 @@ h1~p {}
 #sushi::before {
     content: "\01f363";
 }
+
+/*
+320px, 375,425, (Mobile)
+768, (Tablet)
+1024, 1440, (PC)
+2560 (4K)
+*/
+@media screen and (max-width: 768px) {
+    body {
+        color: blue;
+    }
+}
