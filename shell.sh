@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# env使う例
+# #!/usr/bin/env node
+
 find . -type f -name '*.pdf'
 
 for i in $(seq 1 7); do echo "i = $i"; done
