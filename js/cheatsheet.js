@@ -14,6 +14,10 @@ Array.of(1, 2, 3) // (3) [1, 2, 3]
 Object.fromEntries([["hoge", 1], ["piyo", 2]]) // {hoge: 1, piyo: 2}
 Object.keys(obj)
 
+(123.00).toFixed() // => "123"
+(123.00).toFixed(1) // => "123.0"
+
+
 const uri = ""
 const encoded = encodeURI(uri)
 decodeURI(encoded)
