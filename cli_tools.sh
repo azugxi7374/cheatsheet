@@ -23,3 +23,7 @@ vagrant global-status
 docker run --rm -it ubuntu
 docker ps
 docker images
+
+
+
+ssh -i <key> <user>@host
