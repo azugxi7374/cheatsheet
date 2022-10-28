@@ -1,10 +1,11 @@
 # git
 git config --global user.name <name>
 git config --global user.email <email>
+git config --global ore.editor vim
+git config --list
 git checkout
 git stash
 git add -i
-
 
 # vagrant
 vagrant init bento/ubuntu-18.04
