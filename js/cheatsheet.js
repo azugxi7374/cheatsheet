@@ -42,3 +42,10 @@ atob(btoa("hogepiyo")) // 'hogepiyo'
     console.log(t)
     const js = await res.json() // read後なのでerror
 }
+
+function sleep(ms) {
+  const p = new Promise((res, rej) => {
+    setTimeout(() => res(), ms);
+  });
+  return p;
+}
