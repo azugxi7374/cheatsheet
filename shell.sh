@@ -56,3 +56,8 @@ exit 0
 
 basename /etc/passwd
 basename script.sh .sh
+
+
+
+mkdir tmp/221119
+cd $_
