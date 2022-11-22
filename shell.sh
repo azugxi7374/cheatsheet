@@ -61,3 +61,14 @@ basename script.sh .sh
 
 mkdir tmp/221119
 cd $_
+
+
+
+xargs -P2
+
+######################
+# 文字列
+awk '{print $1, $NF, $0}'
+awk -F. '$NF == "exe" {print $0}'
+
+

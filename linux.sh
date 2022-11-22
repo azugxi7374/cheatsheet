@@ -44,3 +44,7 @@ su - ${USER}
 id -nG
 
 hostname
+
+nproc
+
+time
