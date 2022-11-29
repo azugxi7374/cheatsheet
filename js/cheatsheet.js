@@ -1,9 +1,9 @@
 () => {
-    const { a, b } = {
-        a: "hoge",
-        b: "piyo"
-    }
-    const [c, d] = [1, 2]
+  const { a, b } = {
+    a: "hoge",
+    b: "piyo"
+  }
+  const [c, d] = [1, 2]
 }
 
 Array.from(document.querySelectorAll('div'))
@@ -11,12 +11,17 @@ Array(1, 2) // (2) [1, 2]
 Array(3) // (3) [empty × 3]
 Array.of(1) // [1]
 Array.of(1, 2, 3) // (3) [1, 2, 3]
+function range(n) {
+  return ([...Array(n)]).map((_, i) => i)
+}
+
+
 Object.fromEntries([["hoge", 1], ["piyo", 2]]) // {hoge: 1, piyo: 2}
 Object.keys(obj)
 
-(123.00).toFixed() // => "123"
-(123.00).toFixed(1) // => "123.0"
-
+  (123.00).toFixed() // => "123"
+  (123.00).toFixed(1) // => "123.0"
+"3".padStart(3, "0") // => "003"
 
 const uri = ""
 const encoded = encodeURI(uri)
@@ -36,11 +41,11 @@ atob(btoa("hogepiyo")) // 'hogepiyo'
 "\u{1f604}" // '😄'
 
 {
-    const res = await fetch('http://example.com')
-    res.status // 200
-    const t = await res.text()
-    console.log(t)
-    const js = await res.json() // read後なのでerror
+  const res = await fetch('http://example.com')
+  res.status // 200
+  const t = await res.text()
+  console.log(t)
+  const js = await res.json() // read後なのでerror
 }
 
 function sleep(ms) {
@@ -48,4 +53,69 @@ function sleep(ms) {
     setTimeout(() => res(), ms);
   });
   return p;
+}
+
+
+////////////////////////////////
+// process
+{
+  const some_env = process.env["ENV_NAME"]
+  const [node, prog, ...args] = process.argv
+
+  const { execFileSync } = require('child_process')
+  try {
+    execFileSync('pdftoppm', ['-v'], { stdio: 'ignore' })
+  } catch (e) {
+    console.error(e.message);
+    process.exit(1)
+  }
+}
+
+// files
+const os = require('os')
+const fs = require('fs');
+const readline = require("readline");
+const ospath = require("path");
+
+function createInputStream(file = '/dev/stdin') {
+  const stream = fs.createReadStream(file);
+  const rl = readline.createInterface({
+    input: stream
+  });
+  return rl;
+}
+for await (const line of createInputStream()) {
+  // something
+}
+
+
+async function withTmpDir(callback, remove = true) {
+  const osTmpDir = os.tmpdir();
+  const tmpDirPath = fs.mkdtempSync(`${osTmpDir}${ospath.sep}`)
+
+  let ret;
+  try {
+    ret = await callback(tmpDirPath);
+  } catch (e) {
+    throw e;
+  } finally {
+    if (remove) {
+      fs.rmSync(tmpDirPath, { force: true, recursive: true });
+    }
+  }
+
+  return ret;
+}
+
+// 並列promise
+async function batchPromise(batchSize) {
+  let a = []
+  for (const line of list) {
+    if (a.length === batchSize) {
+      await Promise.all(a);
+      a = [];
+    }
+    a.push(f(line))
+  }
+  await Promise.all(a);
 }
