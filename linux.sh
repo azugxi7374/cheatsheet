@@ -35,15 +35,23 @@ uname -a
 #######################################
 # ユーザ
 cat /etc/sudoers
+cat /etc/passwd
+cat /etc/group
 
 whoami
 echo ${USER}
+
+groups
 
 sudo usermod -aG docker ${USER}
 su - ${USER}
 id -nG
 
 hostname
+
+################
+/etc/hosts
+
 
 nproc
 
