@@ -27,4 +27,16 @@ docker images
 
 
 
+# proxy
+sudo cat<<HEREDOC
+acl all src 0.0.0.0/0
+http_access allow all
+HEREDOC > /etc/squid/conf.d/allow.conf
+sudo systemctl start squid
+sudo systemctl status squid
+
+curl -x proxyhost:3128 https://example.com
+
+
+
 ssh -i <key> <user>@host
