@@ -56,3 +56,9 @@ hostname
 nproc
 
 time
+
+systemctl start 
+systemctl status
+systemctl enable
+
+shutdown -h <min>
