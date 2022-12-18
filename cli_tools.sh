@@ -38,5 +38,9 @@ sudo systemctl status squid
 curl -x proxyhost:3128 https://example.com
 
 
+# server
+python -m "http.server"
+browser-sync start --server 'app' --files 'app'
+
 
 ssh -i <key> <user>@host
