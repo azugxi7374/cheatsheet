@@ -28,6 +28,10 @@ cat /etc/os-release
 
 cat /proc/version
 
+cat /run/systemd/
+cat /run/systemd/shutdown/scheduled
+
+
 # Linuxシステムのバージョン
 uname -a
 
@@ -62,3 +66,5 @@ systemctl status
 systemctl enable
 
 shutdown -h <min>
+
+date -d "@1671458456"
