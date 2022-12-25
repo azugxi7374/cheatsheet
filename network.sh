@@ -14,3 +14,5 @@ dig CNAME www.yahoo.jp #=> edge12.g.yimg.jp.
 dig google.com @8.8.8.8
 
 
+telnet www.google.co.jp 80
+{ printf 'HEAD / HTTP/1.1\nHost: www.google.co.jp\n\n'; sleep 3;} | telnet www.google.co.jp 80
