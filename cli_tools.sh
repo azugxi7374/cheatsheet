@@ -42,5 +42,8 @@ curl -x proxyhost:3128 https://example.com
 python -m "http.server"
 browser-sync start --server 'app' --files 'app'
 
+# echo-server
+docker run --rm -p 8080:8080 jmalloc/echo-server
+
 
 ssh -i <key> <user>@host
