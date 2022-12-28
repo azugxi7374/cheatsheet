@@ -44,6 +44,8 @@ browser-sync start --server 'app' --files 'app'
 
 # echo-server
 docker run --rm -p 8080:8080 jmalloc/echo-server
+nc -l 8088
+nc localhost 8088 # client
 
 
 ssh -i <key> <user>@host
