@@ -3,6 +3,8 @@
 # env使う例
 # #!/usr/bin/env node
 
+# 実行ディレクトリに関わらずカレントディレクトリを移動
+cd `dirname $0`
 
 unset VAR
 
