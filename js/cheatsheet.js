@@ -27,6 +27,8 @@ const uri = ""
 const encoded = encodeURI(uri)
 decodeURI(encoded)
 
+decodeURIComponent(encodeURIComponent(uri))
+
 
 btoa("hogepiyo") // 'aG9nZXBpeW8='
 atob(btoa("hogepiyo")) // 'hogepiyo'
