@@ -28,6 +28,10 @@ atob(btoa("hogepiyo")) // 'hogepiyo'
 
 
 
+history.pushState("", "title", "/dummy")
+// or history.replaceState
+// history.go(-1)
+
 /////////////////////
 // HTMLのサイズ関連
 // ↓スマホで画面サイズ取得に使う
