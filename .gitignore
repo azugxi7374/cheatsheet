@@ -1,3 +1,4 @@
 .history/
 test.ipynb
 .DS_Store
+.local/
