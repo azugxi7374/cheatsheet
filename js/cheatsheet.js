@@ -27,6 +27,8 @@ const uri = ""
 const encoded = encodeURI(uri)
 decodeURI(encoded)
 
+decodeURIComponent(encodeURIComponent(uri))
+
 
 btoa("hogepiyo") // 'aG9nZXBpeW8='
 atob(btoa("hogepiyo")) // 'hogepiyo'
@@ -40,12 +42,19 @@ atob(btoa("hogepiyo")) // 'hogepiyo'
 "😄".codePointAt(0) // 128516
 "\u{1f604}" // '😄'
 
-{
+async function fetch1() {
   const res = await fetch('http://example.com')
   res.status // 200
   const t = await res.text()
   console.log(t)
   const js = await res.json() // read後なのでerror
+  const blob = await res.blob()
+}
+// バイト列
+async function fetch2() {
+  const res = await fetch('http://example.com')
+  const ab = await res.arrayBuffer()
+  return new Uint8Array(ab)
 }
 
 function sleep(ms) {

@@ -62,3 +62,13 @@ document.addEventListener('DOMContentLoaded', () => { });
     'input'
 
 }
+
+// speech
+function speechCancel() {
+    window.speechSynthesis.cancel();
+}
+function speech(text) {
+    synthesis = window.speechSynthesis
+    utterance = new SpeechSynthesisUtterance(text);
+    synthesis.speak(utterance);
+}
