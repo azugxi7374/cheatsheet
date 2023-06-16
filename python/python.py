@@ -1,3 +1,5 @@
+import sys
+
 # c.f.
 # https://docs.python.org/ja/3/tutorial/index.html
 # https://docs.python.org/ja/3/library/index.html
@@ -23,6 +25,8 @@ bar""")
 # hoge
 # piyo
 # foobar
+print("hogepiyo", end="") # 改行しない
+
 
 "hoge"[2] #=> 'g'
 "hoge"[-1] #=> 'e'
@@ -72,3 +76,6 @@ with open('./python/python.py', 'r') as f:
 
 import subprocess
 subprocess.run(["open", "example.com"])
+
+# read stdin
+sys.stdin.read()

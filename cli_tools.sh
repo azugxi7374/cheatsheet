@@ -49,3 +49,6 @@ nc localhost 8088 # client
 
 
 ssh -i <key> <user>@host
+
+# ngrok
+ngrok http 8080
