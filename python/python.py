@@ -28,6 +28,18 @@ bar""")
 print("hogepiyo", end="") # 改行しない
 
 
+# encode and decode
+def _encode_and_decode():
+    s="こんにちは"
+    s_enc = s.encode('unicode_escape') # b'\xe3\x81\x93\xe3\x82\x93\xe3\x81\xab\xe3\x81\xa1\xe3\x81\xaf'
+    s_enc_raw = s.encode() # b'\\u3053\\u3093\\u306b\\u3061\\u306f'
+    s_enc_dec = s_enc.decode() # \u3053\u3093\u306b\u3061\u306f
+    s2=s_enc_dec.encode().decode('unicode_escape') # こんにちは
+
+
+
+
+
 "hoge"[2] #=> 'g'
 "hoge"[-1] #=> 'e'
 "hoge"[10] #=> IndexError: string index out of range
@@ -79,3 +91,6 @@ subprocess.run(["open", "example.com"])
 
 # read stdin
 sys.stdin.read()
+
+
+
