@@ -42,6 +42,15 @@ atob(btoa("hogepiyo")) // 'hogepiyo'
 "😄".codePointAt(0) // 128516
 "\u{1f604}" // '😄'
 
+// 文字列
+function _strings() {
+  // regex
+  const m = "abcde".match("b(c.+)e")
+  m[0] // 'bcde'
+  m.index // 1
+  m[1] // 'cd'
+}
+
 async function fetch1() {
   const res = await fetch('http://example.com')
   res.status // 200
