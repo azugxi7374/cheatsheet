@@ -11,13 +11,22 @@ Array(1, 2) // (2) [1, 2]
 Array(3) // (3) [empty × 3]
 Array.of(1) // [1]
 Array.of(1, 2, 3) // (3) [1, 2, 3]
+  // 値埋め
+  ([...Array(5)]).fill(3)
+// 範囲
 function range(n) {
   return ([...Array(n)]).map((_, i) => i)
 }
 
-
 Object.fromEntries([["hoge", 1], ["piyo", 2]]) // {hoge: 1, piyo: 2}
 Object.keys(obj)
+
+// ?.
+var b = {}
+b.piyo.toUpperCase().length // ERROR
+b.piyo?.toUpperCase().length // undefined
+
+
 
   (123.00).toFixed() // => "123"
   (123.00).toFixed(1) // => "123.0"

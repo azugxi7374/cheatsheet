@@ -15,3 +15,4 @@ _text_encoded=$(node -e 'console.log(encodeURI(`'$_text'`))'); _temp=`mktemp`; c
 ########################
 # github
 gh gist create gistfilename -f file.txt
+gh repo create # 対話式
