@@ -66,5 +66,3 @@ systemctl status
 systemctl enable
 
 shutdown -h <min>
-
-date -d "@1671458456"

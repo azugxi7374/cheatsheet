@@ -100,3 +100,6 @@ cd $_
 
 xargs -P2
 
+date -d "@1671458456"
+date "+%s"
+date "+%y%m%d"
