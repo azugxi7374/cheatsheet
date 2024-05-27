@@ -21,6 +21,8 @@ function range(n) {
 Object.fromEntries([["hoge", 1], ["piyo", 2]]) // {hoge: 1, piyo: 2}
 Object.keys(obj)
 
+Object.groupBy([1,2,3,4,5], (v, i) => v % 2) // [[2, 4], [1, 3, 5]]
+
 // ?.
 var b = {}
 b.piyo.toUpperCase().length // ERROR
