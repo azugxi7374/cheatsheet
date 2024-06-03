@@ -17,6 +17,16 @@
     <meta property="og:title" content="title">
 
 
+    <script type="importmap"> {
+        "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+    }
+    </script>
+    <script type="module">
+        import { createApp } from 'vue'
+        // ...
+    </script>
 </head>
 
 <body>
@@ -38,7 +48,7 @@
 
 </body>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 
 </html>
