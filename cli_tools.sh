@@ -40,6 +40,7 @@ curl -x proxyhost:3128 https://example.com
 
 # server
 python -m "http.server"
+npx serve
 browser-sync start --server 'app' --files 'app'
 
 # echo-server
