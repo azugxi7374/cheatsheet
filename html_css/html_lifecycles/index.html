@@ -1,0 +1,20 @@
+<!-- open this html with browser -->
+
+
+<script>
+    const now = Date.now();
+    console.log("1. state = ", document.readyState) // loading
+    document.addEventListener('DOMContentLoaded', (e) => {
+        console.log("4. state = ", document.readyState) // interactive
+    })
+    document.addEventListener('readystatechange', (e) => {
+        console.log("3. state = ", document.readyState) // interactive -> complete
+    });
+    console.log("sleeping 5sec...")
+    while (Date.now() < now + 5 * 1000) { }
+
+    console.log("2. state = ", document.readyState) // loading
+
+
+
+</script>
