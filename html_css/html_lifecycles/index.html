@@ -1,20 +1,37 @@
 <!-- open this html with browser -->
+<div>div content</div>
 
+<!-- <img src="http://localhost:8125/dummy.jpg" /> -->
+<img
+    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=" />
 
 <script>
+    // const dummyServer = `http://localhost:8125`
+
+    console.log("[script start] state = ", document.readyState) // loading
+
     const now = Date.now();
-    console.log("1. state = ", document.readyState) // loading
     document.addEventListener('DOMContentLoaded', (e) => {
-        console.log("4. state = ", document.readyState) // interactive
+        console.log("[DOMContentLoaded] state = ", document.readyState) // interactive
     })
     document.addEventListener('readystatechange', (e) => {
-        console.log("3. state = ", document.readyState) // interactive -> complete
+        console.log("[readystatechange] state = ", document.readyState) // interactive -> complete
     });
-    console.log("sleeping 5sec...")
+
+    // 同期の長い処理
+    console.log("sync sleeping 5sec...")
     while (Date.now() < now + 5 * 1000) { }
 
-    console.log("2. state = ", document.readyState) // loading
+    // 非同期の長い処理
+    const p = new Promise((res, rej) => {
+        const stateBefore = document.readyState
+        console.log("[in promise constructor]", document.readyState, "async sleeping...")
+        setTimeout(() => res(), 5 * 1000)
+    }).then(stateBefore => {
+        const stateAfter = document.readyState
+        console.log("[after async sleep]", stateAfter)
+    })
 
-
+    console.log("[end of script]. state = ", document.readyState) // loading
 
 </script>
