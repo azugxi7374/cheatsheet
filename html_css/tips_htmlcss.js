@@ -72,3 +72,41 @@ function speech(text) {
     utterance = new SpeechSynthesisUtterance(text);
     synthesis.speak(utterance);
 }
+
+
+
+// 画像データ変換系 (canvas, img, base64)
+// 右クリックで画像ダウンロードも可能
+function canvasTobase64(canvas) {
+    const ctx = canvas.getContext('2d');
+    { // draw
+        canvas.height = 100
+        canvas.width = 200
+        ctx.fillStyle = "blue";
+        ctx.fillRect(0, 0, 50, 50)
+        ctx.strokeStyle = "rgb(255,128,0,1)"
+        ctx.lineWidth = 15;
+        ctx.strokeRect(25, 10, 50, 50)
+    }
+
+    const dataURL = canvas.toDataURL("image/png"); // -> base64
+    return dataURL
+}
+
+function base64ToImage(base64, onImgload) {
+    const img = new Image()
+    img.src = base64
+    img.onload = onImgload(img)
+    return img;
+    // ex. document.body.appendChild(img)
+}
+
+function imageToBase64(img) {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    return canvasTobase64(canvas)
+}
