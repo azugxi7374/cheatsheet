@@ -1,9 +1,12 @@
 <!-- open this html with browser -->
-<div>div content</div>
+<div id="dom-content-1">content before script tag.</div>
 
-<!-- <img src="http://localhost:8125/dummy.jpg" /> -->
-<img
-    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=" />
+<div id="dom-content-2">
+    <!-- <img src="http://localhost:8125/dummy.jpg" /> -->
+    <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=" />
+    <img src="./simple_image.png" />
+</div>
 
 <script>
     // const dummyServer = `http://localhost:8125`
@@ -32,6 +35,19 @@
         console.log("[after async sleep]", stateAfter)
     })
 
+    const documents = document.body.innerHTML
+    console.log("body = ", documents)
+
+    const dc1 = document.querySelector('#dom-content-1')
+    const dc3 = document.querySelector('#dom-content-3')
+    console.log("dc1 = ", dc1, "dc3 = ", dc3)
+
     console.log("[end of script]. state = ", document.readyState) // loading
 
+</script>
+
+<div id="dom-content-3">contents after script tag. </div>
+
+<script>
+    console.log("script 2")
 </script>
