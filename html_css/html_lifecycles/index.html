@@ -22,14 +22,14 @@
     });
 
     // 同期の長い処理
-    console.log("sync sleeping 5sec...")
-    while (Date.now() < now + 5 * 1000) { }
+    console.log("sync sleeping 3sec...")
+    while (Date.now() < now + 3 * 1000) { }
 
     // 非同期の長い処理
     const p = new Promise((res, rej) => {
         const stateBefore = document.readyState
         console.log("[in promise constructor]", document.readyState, "async sleeping...")
-        setTimeout(() => res(), 5 * 1000)
+        setTimeout(() => res(), 3 * 1000)
     }).then(stateBefore => {
         const stateAfter = document.readyState
         console.log("[after async sleep]", stateAfter)
@@ -44,9 +44,14 @@
 
     console.log("[end of script]. state = ", document.readyState) // loading
 
+    // document.body.innerHTML += `<div id="dom-content-4>content added by script1</div>"`
+    const div4 = document.createElement('div'); div4.id = "dom-content-4";
+    div4.textContent = "content added by script1"
+    document.body.appendChild(div4)
+
 </script>
 
-<div id="dom-content-3">contents after script tag. </div>
+<div id="dom-content-3">content after script tag. </div>
 
 <script>
     console.log("script 2")
