@@ -23,7 +23,7 @@
 
     // 同期の長い処理
     console.log("sync sleeping 3sec...")
-    while (Date.now() < now + 3 * 1000) { }
+    syncSleep(3 * 1000)
 
     // 非同期の長い処理
     const p = new Promise((res, rej) => {
@@ -42,13 +42,33 @@
     const dc3 = document.querySelector('#dom-content-3')
     console.log("dc1 = ", dc1, "dc3 = ", dc3)
 
-    console.log("[end of script]. state = ", document.readyState) // loading
 
     // document.body.innerHTML += `<div id="dom-content-4>content added by script1</div>"`
     const div4 = document.createElement('div'); div4.id = "dom-content-4";
     div4.textContent = "content added by script1"
     document.body.appendChild(div4)
 
+    // imgのsrcを変え続けたらどうなるのか
+    // -> onloadは何度でも呼ばれるが document.readyState は変化しない
+    const img = document.createElement('img')
+    document.body.appendChild(img)
+    let cnt = 0;
+    img.src = "./simple_image.png"
+    img.onload = () => {
+        console.log("img loaded!", cnt++)
+        setTimeout(() => {
+            if (cnt < 10) {
+                img.src = "./simple_image.png"
+            }
+        }, 1000)
+    }
+
+    function syncSleep(ms) {
+        const now = Date.now();
+        while (Date.now() < now + ms) { }
+    }
+
+    console.log("[end of script]. state = ", document.readyState) // loading
 </script>
 
 <div id="dom-content-3">content after script tag. </div>
