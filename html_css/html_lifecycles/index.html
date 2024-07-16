@@ -2,7 +2,8 @@
 <div id="dom-content-1">content before script tag.</div>
 
 <div id="dom-content-2">
-    <!-- <img src="http://localhost:8125/dummy.jpg" /> -->
+    <!-- この時点でrequestが飛ぶ -->
+    <img src="http://localhost:8125/dummy.jpg"/>
     <img
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=" />
     <img src="./simple_image.png" />
@@ -21,32 +22,31 @@
         console.log("[readystatechange] state = ", document.readyState) // interactive -> complete
     });
 
-    // 同期の長い処理
+    // 同期の長い処理 -> 読み込みが止まる
     console.log("sync sleeping 3sec...")
     syncSleep(3 * 1000)
 
     // 非同期の長い処理
     const p = new Promise((res, rej) => {
         const stateBefore = document.readyState
-        console.log("[in promise constructor]", document.readyState, "async sleeping...")
-        setTimeout(() => res(), 3 * 1000)
+        console.log("[in promise constructor]", document.readyState, "async sleeping...") // 即実行。loading
+        setTimeout(() => res(), 1 * 1000)
     }).then(stateBefore => {
         const stateAfter = document.readyState
-        console.log("[after async sleep]", stateAfter)
+        console.log("[after async sleep]", stateAfter) // interactive or complete. script2よりもあと
     })
 
     const documents = document.body.innerHTML
-    console.log("body = ", documents)
+    console.log("body = ", documents) // -> このscriptまで
 
-    const dc1 = document.querySelector('#dom-content-1')
-    const dc3 = document.querySelector('#dom-content-3')
+    const dc1 = document.querySelector('#dom-content-1') // -> ok
+    const dc3 = document.querySelector('#dom-content-3') // -> null
     console.log("dc1 = ", dc1, "dc3 = ", dc3)
 
 
-    // document.body.innerHTML += `<div id="dom-content-4>content added by script1</div>"`
     const div4 = document.createElement('div'); div4.id = "dom-content-4";
     div4.textContent = "content added by script1"
-    document.body.appendChild(div4)
+    document.body.appendChild(div4) // -> このscriptのすぐ下
 
     // imgのsrcを変え続けたらどうなるのか
     // -> onloadは何度でも呼ばれるが document.readyState は変化しない
@@ -74,5 +74,8 @@
 <div id="dom-content-3">content after script tag. </div>
 
 <script>
-    console.log("script 2")
+    console.log("script 2. sleep 3sec.")
+    syncSleep(3 * 1000)
 </script>
+
+<img src="http://localhost:8125/dummy.jpg" /> <!-- script2も終わってからrequestが飛ぶ -->
