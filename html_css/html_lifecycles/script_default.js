@@ -1,0 +1,1 @@
+console.log("script_default.", document.readyState, "dom-after-script=", document.querySelector("#dom-content-3"))

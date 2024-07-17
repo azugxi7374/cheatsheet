@@ -3,7 +3,7 @@
 
 <div id="dom-content-2">
     <!-- この時点でrequestが飛ぶ -->
-    <img src="http://localhost:8125/dummy.jpg"/>
+    <img src="http://localhost:8125/dummy.jpg" />
     <img
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=" />
     <img src="./simple_image.png" />
@@ -57,7 +57,7 @@
     img.onload = () => {
         console.log("img loaded!", cnt++)
         setTimeout(() => {
-            if (cnt < 10) {
+            if (cnt < 3) {
                 img.src = "./simple_image.png"
             }
         }, 1000)
@@ -71,6 +71,13 @@
     console.log("[end of script]. state = ", document.readyState) // loading
 </script>
 
+<!-- loading -->
+<script src="./script_default.js"></script>
+<!-- loading, 途中までは読み込み中。 -->
+<script async src="./script_async.js"></script>
+<!-- interactive -->
+<script defer src="./script_defer.js"></script>
+
 <div id="dom-content-3">content after script tag. </div>
 
 <script>
@@ -79,3 +86,4 @@
 </script>
 
 <img src="http://localhost:8125/dummy.jpg" /> <!-- script2も終わってからrequestが飛ぶ -->
+
