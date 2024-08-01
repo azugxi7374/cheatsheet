@@ -27,7 +27,10 @@ Object.groupBy([1,2,3,4,5], (v, i) => v % 2) // [[2, 4], [1, 3, 5]]
 var b = {}
 b.piyo.toUpperCase().length // ERROR
 b.piyo?.toUpperCase().length // undefined
-
+var a1 = null, a2 = 0, b = "some string";
+(a1 ?? b) // "some string"
+(a2 ?? b) // 0
+(a2 || b) // "some string"
 
 
   (123.00).toFixed() // => "123"
