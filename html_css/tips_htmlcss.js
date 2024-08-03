@@ -1,3 +1,7 @@
+var elem1, elem2, position
+elem1.insertAdjacentElement(position, elem2)
+// position: 'beforebegin' 'afterbegin' 'beforeend' 'afterend'
+
 // CSSの解決値を取得
 // getComputedStyle
 const e = {/*...*/ }; // 要素
