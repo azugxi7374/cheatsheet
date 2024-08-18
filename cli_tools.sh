@@ -7,6 +7,11 @@ git checkout
 git stash
 git add -i
 
+# sparse # 一部のディレクトリのみクローンする
+git clone --filter=blob:none --sparse <url>
+git sparse-checkout set <dir>
+
+
 # vagrant
 vagrant init bento/ubuntu-18.04
 vagrant box add centos/8
