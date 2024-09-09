@@ -98,6 +98,10 @@ basename script.sh .sh
 mkdir tmp/221119
 cd $_
 
+pushd
+dirs
+popd
+
 xargs -P2
 
 date -d "@1671458456"
