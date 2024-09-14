@@ -8,6 +8,8 @@ ls /usr/sbin
 which -a ls
 whereis ls
 
+manpath
+
 #################################################
 # システム設定ディレクトリ(CentOS)
 ls /usr/lib/systemd/system # CentOS
