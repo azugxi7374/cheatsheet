@@ -6,6 +6,10 @@ git config --list
 git checkout
 git stash
 git add -i
+git show
+git show HEAD~
+git show HEAD~~~ # HEAD~3
+git show HEAD~3:cli_tools.sh
 
 # sparse # 一部のディレクトリのみクローンする
 git clone --filter=blob:none --sparse <url>
