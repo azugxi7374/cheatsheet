@@ -67,16 +67,6 @@ document.addEventListener('DOMContentLoaded', () => { });
 
 }
 
-// speech
-function speechCancel() {
-    window.speechSynthesis.cancel();
-}
-function speech(text) {
-    synthesis = window.speechSynthesis
-    utterance = new SpeechSynthesisUtterance(text);
-    synthesis.speak(utterance);
-}
-
 
 
 // 画像データ変換系 (canvas, img, base64)
