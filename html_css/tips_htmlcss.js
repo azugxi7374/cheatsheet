@@ -42,12 +42,16 @@ history.pushState("", "title", "/dummy")
 [window.parent.screen.height, window.parent.screen.width] // window.topでいいのでは？
 
 [window.innerHeight, window.innerWidth] // ビューポートのサイズ
+[window.outerHeight, window.outerWidth] // ブラウザ全体のサイズ
 
 const elem1 = document.body;
 [elem1.clientHeight, elem1.clientWidth] // padding含む内側サイズ
 const elem2 = document.querySelector('a')
 [elem2.clientHeight, elem2.clientWidth] // inlineでは0
 
+// ビューポートに対する要素の位置とサイズ
+elem2.getBoundingClientRect()
+// -> x, y, width, height, top, right, bottom, left
 
 
 // events
